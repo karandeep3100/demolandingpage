@@ -1,1 +1,1349 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rakesh Jewellers — Fine Jewellery · Karnal, Haryana</title>
+<meta name="description" content="Rakesh Jewellers, Hansi Road, Braham Nagar, Karnal. Hallmarked gold, bridal sets, diamond & custom jewellery. Rated 4.9★ by our patrons." />
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Josefin+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          obsidian: '#0A0A0A',
+          charcoal: '#141414',
+          cream: '#F2F0E4',
+          gold: '#D4AF37',
+          goldlight: '#F2E8C4',
+          midnight: '#1E3D59',
+          pewter: '#888888',
+        },
+        fontFamily: {
+          display: ['Marcellus', 'serif'],
+          body: ['"Josefin Sans"', 'sans-serif'],
+        }
+      }
+    }
+  }
+</script>
+
+<style>
+  :root{ --gold:#D4AF37; --gold-light:#F2E8C4; --obsidian:#0A0A0A; }
+
+  *{ -webkit-tap-highlight-color: transparent; }
+  html{ background:#0A0A0A; }
+  body{
+    background:#0A0A0A;
+    color:#F2F0E4;
+    font-family:'Josefin Sans', sans-serif;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  body.intro-lock{ overflow:hidden; height:100vh; }
+  ::selection{ background:#D4AF37; color:#0A0A0A; }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar{ width:10px; }
+  ::-webkit-scrollbar-track{ background:#0A0A0A; }
+  ::-webkit-scrollbar-thumb{ background:#3a3220; border:2px solid #0A0A0A; }
+  ::-webkit-scrollbar-thumb:hover{ background:#D4AF37; }
+
+  /* Film grain */
+  .grain::before{
+    content:"";
+    position:fixed; inset:0; z-index:400; pointer-events:none;
+    opacity:.04;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Subtle diagonal crosshatch (used sparingly) */
+  .bg-crosshatch{
+    background-image:
+      repeating-linear-gradient(45deg, rgba(212,175,55,.045) 0 1px, transparent 1px 26px),
+      repeating-linear-gradient(-45deg, rgba(212,175,55,.045) 0 1px, transparent 1px 26px);
+  }
+
+  /* Shimmering gold text */
+  .shimmer-gold{
+    background-image:linear-gradient(100deg,#8a6f1e 0%,#D4AF37 22%,#F7EBA8 48%,#D4AF37 72%,#8a6f1e 100%);
+    background-size:250% 100%;
+    -webkit-background-clip:text; background-clip:text;
+    color:transparent;
+    animation:shimmerMove 7s linear infinite;
+  }
+  @keyframes shimmerMove{
+    0%{ background-position:250% 0; }
+    100%{ background-position:-250% 0; }
+  }
+
+  /* Glow */
+  .glow-gold{ box-shadow:0 0 18px rgba(212,175,55,.22); }
+  .glow-gold-lg{ box-shadow:0 0 34px rgba(212,175,55,.30); }
+
+  /* Buttons */
+  .btn{
+    position:relative;
+    display:inline-flex; align-items:center; justify-content:center; gap:.6rem;
+    min-height:48px; padding:0 2rem;
+    font-family:'Josefin Sans',sans-serif;
+    font-size:.72rem; font-weight:500;
+    letter-spacing:.28em; text-transform:uppercase;
+    transition:all .4s cubic-bezier(.2,.7,.3,1);
+    cursor:pointer;
+    white-space:nowrap;
+  }
+  .btn-primary{ border:2px solid #D4AF37; color:#D4AF37; background:transparent; }
+  .btn-primary:hover{ background:#D4AF37; color:#0A0A0A; box-shadow:0 0 26px rgba(212,175,55,.5); }
+
+  .btn-solid{ background:#D4AF37; color:#0A0A0A; border:2px solid #D4AF37; }
+  .btn-solid:hover{ background:#F2E8C4; border-color:#F2E8C4; box-shadow:0 0 26px rgba(212,175,55,.45); }
+
+  /* Card corner brackets */
+  .deco-corners{ position:relative; }
+  .deco-corners::before,
+  .deco-corners::after{
+    content:"";
+    position:absolute; width:16px; height:16px;
+    opacity:.45;
+    transition:opacity .5s ease, width .5s ease, height .5s ease;
+    pointer-events:none;
+  }
+  .deco-corners::before{ top:7px; left:7px; border-top:2px solid #D4AF37; border-left:2px solid #D4AF37; }
+  .deco-corners::after{ bottom:7px; right:7px; border-bottom:2px solid #D4AF37; border-right:2px solid #D4AF37; }
+  .deco-corners:hover::before,
+  .deco-corners:hover::after{ opacity:1; width:26px; height:26px; }
+
+  /* Nav link underline */
+  .nav-link{ position:relative; }
+  .nav-link::after{
+    content:""; position:absolute; left:0; bottom:-6px; height:1px; width:0;
+    background:#D4AF37; transition:width .4s cubic-bezier(.2,.7,.3,1);
+  }
+  .nav-link:hover::after{ width:100%; }
+  .nav-link:hover{ color:#D4AF37; }
+
+  /* Marquee */
+  @keyframes marquee{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+  .animate-marquee{ animation:marquee 34s linear infinite; }
+  .marquee-wrap:hover .animate-marquee{ animation-play-state:paused; }
+
+  /* Scroll reveal */
+  .reveal{
+    opacity:0;
+    transform:translateY(30px);
+    transition:opacity 1s cubic-bezier(.2,.7,.3,1), transform 1s cubic-bezier(.2,.7,.3,1);
+    will-change:opacity, transform;
+  }
+  .reveal.in{ opacity:1; transform:none; }
+
+  /* Diamond icon frame */
+  .diamond{
+    transform:rotate(45deg);
+    border:1px solid rgba(212,175,55,.7);
+    display:flex; align-items:center; justify-content:center;
+    transition:transform .6s cubic-bezier(.2,.7,.3,1), border-color .6s ease, box-shadow .6s ease;
+  }
+  .diamond > *{ transform:rotate(-45deg); }
+  .group:hover .diamond{
+    transform:rotate(0deg);
+    border-color:#D4AF37;
+    box-shadow:0 0 24px rgba(212,175,55,.35);
+  }
+  .group:hover .diamond > *{ transform:rotate(0deg); }
+
+  /* Section divider rule */
+  .rule{ height:1px; background:linear-gradient(90deg, transparent, rgba(212,175,55,.8), transparent); }
+
+  /* Image frames */
+  .frame-outer{ border:1px solid rgba(212,175,55,.55); padding:10px; background:#0A0A0A; }
+  .frame-inner{ position:relative; overflow:hidden; border:1px solid rgba(212,175,55,.25); background:#141414; }
+  .frame-inner img{
+    width:100%; height:100%; object-fit:cover; display:block;
+    filter:grayscale(.35) brightness(.92) contrast(1.05);
+    transition:transform 1s cubic-bezier(.2,.7,.3,1), filter .8s ease;
+  }
+  .frame-inner:hover img{
+    transform:scale(1.06);
+    filter:grayscale(0) brightness(1) contrast(1.03);
+  }
+
+  /* ==========================================================
+     INTRO / PRELOADER
+     ========================================================== */
+  #intro{ position:fixed; inset:0; z-index:1000; }
+  #intro.open{ pointer-events:none; }
+
+  #intro .door{
+    position:absolute; top:0; height:100%; width:50.4%;
+    background:#0A0A0A;
+    transition:transform 1.15s cubic-bezier(.77,0,.18,1);
+    will-change:transform;
+  }
+  #intro .door::after{
+    content:""; position:absolute; inset:0;
+    background-image:
+      repeating-linear-gradient(45deg, rgba(212,175,55,.05) 0 1px, transparent 1px 26px),
+      repeating-linear-gradient(-45deg, rgba(212,175,55,.05) 0 1px, transparent 1px 26px);
+  }
+  #intro .door-l{ left:0; border-right:1px solid rgba(212,175,55,.4); }
+  #intro .door-r{ right:0; border-left:1px solid rgba(212,175,55,.4); }
+  #intro.open .door-l{ transform:translateX(-101%); }
+  #intro.open .door-r{ transform:translateX(101%); }
+
+  #introContent{ transition:opacity .55s ease, transform .55s ease, filter .55s ease; }
+  #introContent.out{ opacity:0; transform:scale(1.07); filter:blur(8px); }
+
+  .intro-letter{
+    display:inline-block;
+    opacity:0;
+    animation:letterIn .95s cubic-bezier(.2,.7,.3,1) forwards;
+  }
+  @keyframes letterIn{
+    0%{ opacity:0; transform:translateY(46px) scale(1.35); filter:blur(10px); }
+    60%{ opacity:1; filter:blur(0); }
+    100%{ opacity:1; transform:translateY(0) scale(1); filter:blur(0); }
+  }
+
+  .fade-line{ opacity:0; transform:scaleX(0); animation:lineGrow 1.1s cubic-bezier(.2,.7,.3,1) 1.75s forwards; }
+  @keyframes lineGrow{ to{ opacity:1; transform:scaleX(1); } }
+
+  .fade-up{ opacity:0; transform:translateY(18px); animation:fadeUp .9s cubic-bezier(.2,.7,.3,1) forwards; }
+  @keyframes fadeUp{ to{ opacity:1; transform:translateY(0); } }
+
+  .intro-rings{ opacity:0; animation:ringsRise 2.6s ease-out .1s forwards; }
+  @keyframes ringsRise{
+    0%{ opacity:0; transform:scale(.55); }
+    100%{ opacity:1; transform:scale(1); }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    *, *::before, *::after{
+      animation-duration:.01ms !important;
+      animation-iteration-count:1 !important;
+      transition-duration:.01ms !important;
+    }
+    .reveal{ opacity:1 !important; transform:none !important; }
+  }
+
+  /* Map */
+  .map-frame iframe{
+    filter:grayscale(1) brightness(.72) contrast(1.08);
+    transition:filter .6s ease;
+  }
+  .map-frame:hover iframe{ filter:grayscale(.55) brightness(.85) contrast(1.05); }
+</style>
+</head>
+
+<body class="intro-lock grain bg-obsidian text-cream font-body">
+
+<!-- ============================================================
+     INTRO — Art Deco elevator doors + name reveal
+     ============================================================ -->
+<div id="intro" role="presentation">
+  <div class="door door-l"></div>
+  <div class="door door-r"></div>
+
+  <div id="introContent" class="absolute inset-0 z-10 flex items-center justify-center px-6">
+    <!-- soft gold glow -->
+    <div class="intro-rings pointer-events-none absolute left-1/2 top-1/2 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full"
+         style="background:radial-gradient(circle, rgba(212,175,55,.18) 0%, rgba(212,175,55,.05) 40%, transparent 70%);"></div>
+
+    <div class="relative text-center">
+
+      <!-- top ornament -->
+      <div class="fade-up mb-8 flex items-center justify-center gap-4" style="animation-delay:1.9s">
+        <span class="h-px w-10 bg-gold/60"></span>
+        <span class="diamond h-3 w-3" style="transform:rotate(45deg);border-color:rgba(212,175,55,.8)"></span>
+        <span class="h-px w-10 bg-gold/60"></span>
+      </div>
+
+      <!-- RAKESH -->
+      <h1 class="font-display uppercase leading-[0.92]">
+        <span class="block text-[3.4rem] sm:text-7xl lg:text-[6.2rem] tracking-[0.18em] text-cream">
+          <span class="intro-letter" style="animation-delay:.30s">R</span><span class="intro-letter" style="animation-delay:.39s">A</span><span class="intro-letter" style="animation-delay:.48s">K</span><span class="intro-letter" style="animation-delay:.57s">E</span><span class="intro-letter" style="animation-delay:.66s">S</span><span class="intro-letter" style="animation-delay:.75s">H</span>
+        </span>
+        <span class="mt-2 block text-[1.9rem] sm:text-5xl lg:text-[3.6rem] tracking-[0.34em] shimmer-gold">
+          <span class="intro-letter" style="animation-delay:.95s">J</span><span class="intro-letter" style="animation-delay:1.03s">E</span><span class="intro-letter" style="animation-delay:1.11s">W</span><span class="intro-letter" style="animation-delay:1.19s">E</span><span class="intro-letter" style="animation-delay:1.27s">L</span><span class="intro-letter" style="animation-delay:1.35s">L</span><span class="intro-letter" style="animation-delay:1.43s">E</span><span class="intro-letter" style="animation-delay:1.51s">R</span><span class="intro-letter" style="animation-delay:1.59s">S</span>
+        </span>
+      </h1>
+
+      <!-- gold rule -->
+      <div class="fade-line mx-auto mt-8 h-px w-56 origin-center bg-gradient-to-r from-transparent via-gold to-transparent"></div>
+
+      <!-- tagline -->
+      <p class="fade-up mt-6 text-[10px] sm:text-xs tracking-[0.55em] text-pewter uppercase" style="animation-delay:2.05s">
+        Fine Jewellery · Karnal
+      </p>
+    </div>
+  </div>
+
+  <!-- skip -->
+  <button id="skipIntro" class="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 text-[10px] tracking-[0.4em] uppercase text-pewter/70 hover:text-gold transition-colors duration-300" style="opacity:0;animation:fadeUp .8s ease 2.6s forwards">
+    Skip
+  </button>
+</div>
+
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header id="siteHeader" class="fixed inset-x-0 top-0 z-50 transition-all duration-500">
+  <div class="absolute inset-0 border-b border-gold/20 bg-obsidian/80 backdrop-blur-md"></div>
+
+  <div class="relative mx-auto max-w-8xl px-5 sm:px-8">
+    <div class="flex h-20 items-center justify-between">
+
+      <!-- Logo -->
+      <a href="#home" class="group flex items-center gap-3">
+        <span class="diamond h-9 w-9 border-gold/70">
+          <span class="font-display text-lg leading-none text-gold">R</span>
+        </span>
+        <span class="leading-none">
+          <span class="block font-display text-sm tracking-[0.34em] text-gold sm:text-base">RAKESH</span>
+          <span class="mt-1 block text-[9px] tracking-[0.46em] text-pewter">JEWELLERS</span>
+        </span>
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="hidden items-center gap-9 lg:flex">
+        <a href="#home"        class="nav-link text-[11px] uppercase tracking-[0.3em] text-cream/85 transition-colors duration-300">Home</a>
+        <a href="#collections" class="nav-link text-[11px] uppercase tracking-[0.3em] text-cream/85 transition-colors duration-300">Collections</a>
+        <a href="#gallery"     class="nav-link text-[11px] uppercase tracking-[0.3em] text-cream/85 transition-colors duration-300">Gallery</a>
+        <a href="#heritage"    class="nav-link text-[11px] uppercase tracking-[0.3em] text-cream/85 transition-colors duration-300">Heritage</a>
+        <a href="#reviews"     class="nav-link text-[11px] uppercase tracking-[0.3em] text-cream/85 transition-colors duration-300">Reviews</a>
+        <a href="#visit"       class="nav-link text-[11px] uppercase tracking-[0.3em] text-cream/85 transition-colors duration-300">Visit</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="tel:+919896079892" class="btn btn-primary hidden !min-h-[42px] !px-6 !text-[10px] sm:inline-flex">
+          <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.2 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.1 9.9a16 16 0 0 0 6 6l1.26-1.26a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call
+        </a>
+
+        <!-- Mobile toggle -->
+        <button id="menuBtn" aria-label="Open menu" aria-expanded="false" class="flex h-11 w-11 flex-col items-center justify-center gap-[5px] border border-gold/40 lg:hidden">
+          <span class="block h-px w-5 bg-gold transition-all duration-300"></span>
+          <span class="block h-px w-5 bg-gold transition-all duration-300"></span>
+          <span class="block h-px w-5 bg-gold transition-all duration-300"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile menu -->
+<div id="mobileMenu" class="fixed inset-0 z-[60] hidden">
+  <div class="absolute inset-0 bg-obsidian/97 backdrop-blur-xl"></div>
+  <div class="absolute inset-0 bg-crosshatch opacity-60"></div>
+  <div class="relative flex h-full flex-col items-center justify-center gap-2 px-8">
+    <button id="menuClose" aria-label="Close menu" class="absolute right-6 top-6 flex h-11 w-11 items-center justify-center border border-gold/40 text-gold text-2xl leading-none">&times;</button>
+
+    <div class="mb-8 flex items-center gap-4">
+      <span class="h-px w-10 bg-gold/50"></span>
+      <span class="font-display text-xs tracking-[0.45em] text-gold">MENU</span>
+      <span class="h-px w-10 bg-gold/50"></span>
+    </div>
+
+    <a href="#home"        class="mobile-link font-display text-2xl uppercase tracking-[0.24em] text-cream py-4 transition-colors duration-300 hover:text-gold">Home</a>
+    <a href="#collections" class="mobile-link font-display text-2xl uppercase tracking-[0.24em] text-cream py-4 transition-colors duration-300 hover:text-gold">Collections</a>
+    <a href="#gallery"     class="mobile-link font-display text-2xl uppercase tracking-[0.24em] text-cream py-4 transition-colors duration-300 hover:text-gold">Gallery</a>
+    <a href="#heritage"    class="mobile-link font-display text-2xl uppercase tracking-[0.24em] text-cream py-4 transition-colors duration-300 hover:text-gold">Heritage</a>
+    <a href="#reviews"     class="mobile-link font-display text-2xl uppercase tracking-[0.24em] text-cream py-4 transition-colors duration-300 hover:text-gold">Reviews</a>
+    <a href="#visit"       class="mobile-link font-display text-2xl uppercase tracking-[0.24em] text-cream py-4 transition-colors duration-300 hover:text-gold">Visit</a>
+
+    <a href="tel:+919896079892" class="btn btn-primary mt-10">Call 098960 79892</a>
+  </div>
+</div>
+
+
+<main>
+<!-- ============================================================
+     HERO — clean background, split layout with jewellery image
+     ============================================================ -->
+<section id="home" class="relative flex min-h-screen items-center overflow-hidden px-5 pb-20 pt-32 sm:px-8">
+  <!-- simple background: dark gradient + faint radial glow -->
+  <div class="absolute inset-0 bg-gradient-to-b from-obsidian via-obsidian to-charcoal/40"></div>
+  <div class="pointer-events-none absolute left-1/2 top-0 h-[900px] w-[1200px] -translate-x-1/2 rounded-full"
+       style="background:radial-gradient(circle, rgba(212,175,55,.10) 0%, transparent 65%);"></div>
+  <div class="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-obsidian to-transparent"></div>
+
+  <div class="relative z-10 mx-auto w-full max-w-7xl">
+    <div class="grid items-center gap-14 lg:grid-cols-12 lg:gap-16">
+
+      <!-- Left: text -->
+      <div class="lg:col-span-7">
+
+        <div class="reveal mb-8 flex items-center gap-4">
+          <span class="h-px w-12 bg-gold/60"></span>
+          <span class="text-[10px] uppercase tracking-[0.5em] text-gold sm:text-xs">Est. Karnal · Haryana</span>
+        </div>
+
+        <h1 class="reveal font-display uppercase leading-[0.94]" style="transition-delay:.08s">
+          <span class="block text-[3rem] tracking-[0.14em] text-cream sm:text-6xl lg:text-7xl">Rakesh</span>
+          <span class="mt-2 block text-[1.9rem] tracking-[0.3em] shimmer-gold sm:text-5xl lg:text-[3.6rem]">Jewellers</span>
+        </h1>
+
+        <div class="reveal mt-8 h-px w-40 bg-gradient-to-r from-gold to-transparent" style="transition-delay:.16s"></div>
+
+        <p class="reveal mt-8 max-w-xl text-base leading-relaxed text-cream/70 sm:text-lg" style="transition-delay:.22s">
+          A house of fine jewellery on Hansi Road, Karnal — where every ornament is
+          weighed in your presence, hallmarked for purity, and finished with the
+          precision of a bygone golden age.
+        </p>
+
+        <div class="reveal mt-10 flex flex-col gap-4 sm:flex-row" style="transition-delay:.3s">
+          <a href="#collections" class="btn btn-solid w-full sm:w-auto">
+            Explore Collections
+            <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#visit" class="btn btn-primary w-full sm:w-auto">Plan a Visit</a>
+        </div>
+
+        <!-- Rating -->
+        <div class="reveal mt-12 inline-flex items-center gap-4 border border-gold/30 bg-charcoal/60 px-6 py-3 backdrop-blur-sm" style="transition-delay:.38s">
+          <span class="font-display text-2xl text-gold">4.9</span>
+          <span class="h-6 w-px bg-gold/30"></span>
+          <span class="flex gap-[3px] text-gold text-sm" aria-label="4.9 out of 5 stars">★★★★★</span>
+          <span class="h-6 w-px bg-gold/30"></span>
+          <span class="text-[10px] uppercase tracking-[0.28em] text-pewter">8 Reviews</span>
+        </div>
+      </div>
+
+      <!-- Right: jewellery images -->
+      <div class="relative lg:col-span-5">
+        <div class="relative mx-auto max-w-md">
+
+          <!-- main image -->
+          <div class="reveal frame-outer" style="transition-delay:.1s">
+            <div class="frame-inner aspect-[4/5]">
+              <img
+                src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=900&q=80"
+                alt="Gold necklace with intricate craftsmanship"
+                loading="eager" />
+            </div>
+          </div>
+
+          <!-- small floating image -->
+          <div class="reveal absolute -bottom-8 -left-6 hidden w-40 sm:block lg:-left-10 lg:w-48" style="transition-delay:.35s">
+            <div class="frame-outer !p-2">
+              <div class="frame-inner aspect-square">
+                <img
+                  src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=500&q=80"
+                  alt="Gold earrings detail"
+                  loading="lazy" />
+              </div>
+            </div>
+          </div>
+
+          <!-- corner accent -->
+          <div class="pointer-events-none absolute -right-4 -top-4 hidden h-24 w-24 border-r-2 border-t-2 border-gold/60 sm:block"></div>
+          <div class="pointer-events-none absolute -bottom-4 -right-4 hidden h-24 w-24 border-b-2 border-r-2 border-gold/60 sm:block"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     MARQUEE BAND
+     ============================================================ -->
+<div class="marquee-wrap relative overflow-hidden border-y border-gold/30 bg-charcoal py-4">
+  <div class="relative flex w-max animate-marquee">
+    <div class="flex shrink-0 items-center">
+      <span class="mx-6 font-display text-xs uppercase tracking-[0.4em] text-gold/85 sm:text-sm">Hallmarked Gold</span><span class="text-gold/50">◆</span>
+      <span class="mx-6 font-display text-xs uppercase tracking-[0.4em] text-gold/85 sm:text-sm">Bridal Sets</span><span class="text-gold/50">◆</span>
+      <span class="mx-6 font-display text-xs uppercase tracking-[0.4em] text-gold/85 sm:text-sm">Diamond Jewellery</span><span class="text-gold/50">◆</span>
+      <span class="mx-6 font-display text-xs uppercase tracking-[0.4em] text-gold/85 sm:text-sm">Silver Ornaments</span><span class="text-gold/50">◆</span>
+      <span class="mx-6 font-display text-xs uppercase tracking-[0.4em] text-gold/85 sm:text-sm">Custom Designs</span><span class="text-gold/50">◆</span>
+      <span class="mx-6 font-display text-xs uppercase tracking-[0.4em] text-gold/85 sm:text-sm">Trusted in Karnal</span><span class="text-gold/50">◆</span>
+    </div>
+    <div class="flex shrink-0 items-center" aria-hidden="true">
+      <span class="mx-6 font-display text-xs uppercase tracking-[0.4em] text-gold/85 sm:text-sm">Hallmarked Gold</span><span class="text-gold/50">◆</span>
+      <span class="mx-6 font-display text-xs uppercase tracking-[0.4em] text-gold/85 sm:text-sm">Bridal Sets</span><span class="text-gold/50">◆</span>
+      <span class="mx-6 font-display text-xs uppercase tracking-[0.4em] text-gold/85 sm:text-sm">Diamond Jewellery</span><span class="text-gold/50">◆</span>
+      <span class="mx-6 font-display text-xs uppercase tracking-[0.4em] text-gold/85 sm:text-sm">Silver Ornaments</span><span class="text-gold/50">◆</span>
+      <span class="mx-6 font-display text-xs uppercase tracking-[0.4em] text-gold/85 sm:text-sm">Custom Designs</span><span class="text-gold/50">◆</span>
+      <span class="mx-6 font-display text-xs uppercase tracking-[0.4em] text-gold/85 sm:text-sm">Trusted in Karnal</span><span class="text-gold/50">◆</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================================
+     COLLECTIONS — 4 cards each with a jewellery image
+     ============================================================ -->
+<section id="collections" class="relative scroll-mt-24 py-28 sm:py-32">
+  <div class="absolute inset-0 bg-crosshatch opacity-60"></div>
+
+  <div class="relative mx-auto max-w-7xl px-5 sm:px-8">
+
+    <div class="mx-auto mb-16 max-w-2xl text-center">
+      <div class="reveal mb-6 flex items-center justify-center gap-4">
+        <span class="h-px w-12 bg-gold/50"></span>
+        <span class="font-display text-sm tracking-[0.4em] text-gold">I</span>
+        <span class="h-px w-12 bg-gold/50"></span>
+      </div>
+      <h2 class="reveal font-display text-3xl uppercase tracking-[0.18em] text-cream sm:text-5xl" style="transition-delay:.08s">
+        The Collections
+      </h2>
+      <p class="reveal mt-6 leading-relaxed text-pewter" style="transition-delay:.16s">
+        Four houses of craft, each with its own discipline. Every piece leaves our
+        counter with a hallmark, a weight slip, and our word.
+      </p>
+    </div>
+
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+
+      <!-- Card I -->
+      <article class="group reveal deco-corners relative border border-gold/30 bg-charcoal transition-all duration-500 hover:-translate-y-2 hover:border-gold">
+        <div class="frame-inner aspect-[4/5] !border-0 !border-b !border-gold/20">
+          <img
+            src="https://images.unsplash.com/photo-1610694955371-d4a3e0ce4b52?w=700&q=80"
+            alt="Bridal gold necklace set"
+            loading="lazy" />
+          <span class="absolute left-4 top-4 font-display text-sm tracking-[0.3em] text-gold drop-shadow">I</span>
+        </div>
+        <div class="p-6">
+          <h3 class="font-display text-lg uppercase tracking-[0.2em] text-gold">Bridal Sets</h3>
+          <p class="mt-3 text-sm leading-relaxed text-pewter">
+            Complete wedding ensembles — haar, choker, jhumka and bangles designed to sit together.
+          </p>
+          <a href="#visit" class="mt-5 inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-cream transition-colors duration-300 group-hover:text-gold">
+            Enquire <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Card II -->
+      <article class="group reveal deco-corners relative border border-gold/30 bg-charcoal transition-all duration-500 hover:-translate-y-2 hover:border-gold" style="transition-delay:.08s">
+        <div class="frame-inner aspect-[4/5] !border-0 !border-b !border-gold/20">
+          <img
+            src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=700&q=80"
+            alt="Gold chain necklace"
+            loading="lazy" />
+          <span class="absolute left-4 top-4 font-display text-sm tracking-[0.3em] text-gold drop-shadow">II</span>
+        </div>
+        <div class="p-6">
+          <h3 class="font-display text-lg uppercase tracking-[0.2em] text-gold">Gold Jewellery</h3>
+          <p class="mt-3 text-sm leading-relaxed text-pewter">
+            Hallmarked chains, kadas, rings and temple jewellery — weighed on open scales.
+          </p>
+          <a href="#visit" class="mt-5 inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-cream transition-colors duration-300 group-hover:text-gold">
+            Enquire <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Card III -->
+      <article class="group reveal deco-corners relative border border-gold/30 bg-charcoal transition-all duration-500 hover:-translate-y-2 hover:border-gold" style="transition-delay:.16s">
+        <div class="frame-inner aspect-[4/5] !border-0 !border-b !border-gold/20">
+          <img
+            src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=700&q=80"
+            alt="Diamond ring close-up"
+            loading="lazy" />
+          <span class="absolute left-4 top-4 font-display text-sm tracking-[0.3em] text-gold drop-shadow">III</span>
+        </div>
+        <div class="p-6">
+          <h3 class="font-display text-lg uppercase tracking-[0.2em] text-gold">Diamond &amp; Stone</h3>
+          <p class="mt-3 text-sm leading-relaxed text-pewter">
+            Solitaires, studs and statement pieces set with certified stones for fire.
+          </p>
+          <a href="#visit" class="mt-5 inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-cream transition-colors duration-300 group-hover:text-gold">
+            Enquire <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Card IV -->
+      <article class="group reveal deco-corners relative border border-gold/30 bg-charcoal transition-all duration-500 hover:-translate-y-2 hover:border-gold" style="transition-delay:.24s">
+        <div class="frame-inner aspect-[4/5] !border-0 !border-b !border-gold/20">
+          <img
+            src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=700&q=80"
+            alt="Gold bangles stacked"
+            loading="lazy" />
+          <span class="absolute left-4 top-4 font-display text-sm tracking-[0.3em] text-gold drop-shadow">IV</span>
+        </div>
+        <div class="p-6">
+          <h3 class="font-display text-lg uppercase tracking-[0.2em] text-gold">Custom Design</h3>
+          <p class="mt-3 text-sm leading-relaxed text-pewter">
+            Bring a sketch or an heirloom to remodel — we design, cast, and set it.
+          </p>
+          <a href="#visit" class="mt-5 inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-cream transition-colors duration-300 group-hover:text-gold">
+            Enquire <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
+          </a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     GALLERY — 6 more images
+     ============================================================ -->
+<section id="gallery" class="relative scroll-mt-24 border-y border-gold/15 py-28 sm:py-32">
+  <div class="absolute inset-0 bg-crosshatch opacity-60"></div>
+  <div class="pointer-events-none absolute right-0 top-1/4 h-[600px] w-[600px] rounded-full"
+       style="background:radial-gradient(circle, rgba(212,175,55,.08) 0%, transparent 70%);"></div>
+
+  <div class="relative mx-auto max-w-7xl px-5 sm:px-8">
+
+    <div class="mx-auto mb-16 max-w-2xl text-center">
+      <div class="reveal mb-6 flex items-center justify-center gap-4">
+        <span class="h-px w-12 bg-gold/50"></span>
+        <span class="font-display text-sm tracking-[0.4em] text-gold">II</span>
+        <span class="h-px w-12 bg-gold/50"></span>
+      </div>
+      <h2 class="reveal font-display text-3xl uppercase tracking-[0.18em] text-cream sm:text-5xl" style="transition-delay:.08s">
+        From The Showroom
+      </h2>
+      <p class="reveal mt-6 leading-relaxed text-pewter" style="transition-delay:.16s">
+        A glimpse of what sits in our glass cases on Hansi Road.
+      </p>
+    </div>
+
+    <!-- masonry-ish grid -->
+    <div class="grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
+
+      <!-- 1 large -->
+      <div class="reveal frame-outer col-span-2 row-span-2" style="transition-delay:.05s">
+        <div class="frame-inner aspect-square lg:aspect-[4/5]">
+          <img
+            src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=1000&q=80"
+            alt="Gold jewellery close up"
+            loading="lazy" />
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="reveal frame-outer" style="transition-delay:.12s">
+        <div class="frame-inner aspect-square">
+          <img
+            src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=700&q=80"
+            alt="Necklace on velvet"
+            loading="lazy" />
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="reveal frame-outer" style="transition-delay:.18s">
+        <div class="frame-inner aspect-square">
+          <img
+            src="https://images.unsplash.com/photo-1631982690223-8aa4be0a2497?w=700&q=80"
+            alt="Gold ring detail"
+            loading="lazy" />
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="reveal frame-outer" style="transition-delay:.24s">
+        <div class="frame-inner aspect-square">
+          <img
+            src="https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?w=700&q=80"
+            alt="Diamond jewellery"
+            loading="lazy" />
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="reveal frame-outer" style="transition-delay:.3s">
+        <div class="frame-inner aspect-square">
+          <img
+            src="https://images.unsplash.com/photo-1609587312208-cea54be969e7?w=700&q=80"
+            alt="Gold jewellery on display"
+            loading="lazy" />
+        </div>
+      </div>
+
+      <!-- 6 wide -->
+      <div class="reveal frame-outer col-span-2" style="transition-delay:.36s">
+        <div class="frame-inner aspect-[2/1]">
+          <img
+            src="https://images.unsplash.com/photo-1584302179602-e4c3d3fd629d?w=1000&q=80"
+            alt="Gold ornaments laid out"
+            loading="lazy" />
+        </div>
+      </div>
+
+      <!-- 7 -->
+      <div class="reveal frame-outer" style="transition-delay:.42s">
+        <div class="frame-inner aspect-square">
+          <img
+            src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=700&q=80"
+            alt="Earrings"
+            loading="lazy" />
+        </div>
+      </div>
+
+      <!-- 8 -->
+      <div class="reveal frame-outer" style="transition-delay:.48s">
+        <div class="frame-inner aspect-square">
+          <img
+            src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=700&q=80"
+            alt="Gold necklace"
+            loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     HERITAGE — split with image
+     ============================================================ -->
+<section id="heritage" class="relative scroll-mt-24 py-28 sm:py-32">
+  <div class="absolute inset-0 bg-crosshatch opacity-60"></div>
+
+  <div class="relative mx-auto max-w-7xl px-5 sm:px-8">
+    <div class="grid items-center gap-16 lg:grid-cols-2 lg:gap-20">
+
+      <!-- Visual -->
+      <div class="reveal relative">
+        <div class="frame-outer">
+          <div class="frame-inner aspect-[4/5]">
+            <img
+              src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=900&q=80"
+              alt="Gold necklace hanging"
+              loading="lazy" />
+            <div class="pointer-events-none absolute inset-0" style="background:linear-gradient(180deg, transparent 45%, rgba(10,10,10,.85) 100%);"></div>
+          </div>
+        </div>
+
+        <!-- floating badge -->
+        <div class="absolute -bottom-6 right-4 border border-gold/50 bg-obsidian px-7 py-4 text-center glow-gold sm:right-8">
+          <p class="font-display text-3xl leading-none text-gold">4.9</p>
+          <p class="mt-2 text-[9px] uppercase tracking-[0.32em] text-pewter">8 Reviews</p>
+        </div>
+      </div>
+
+      <!-- Copy -->
+      <div>
+        <div class="reveal mb-6 flex items-center gap-4">
+          <span class="h-px w-12 bg-gold/50"></span>
+          <span class="font-display text-sm tracking-[0.4em] text-gold">III</span>
+          <span class="h-px w-12 bg-gold/50"></span>
+        </div>
+
+        <h2 class="reveal font-display text-3xl uppercase tracking-[0.16em] text-cream sm:text-4xl lg:text-5xl" style="transition-delay:.08s">
+          The House<br class="hidden sm:block" /> on Hansi Road
+        </h2>
+
+        <div class="reveal mt-7 h-px w-32 bg-gradient-to-r from-gold to-transparent" style="transition-delay:.14s"></div>
+
+        <p class="reveal mt-7 leading-relaxed text-cream/70" style="transition-delay:.2s">
+          Rakesh Jewellers has been a fixture of Braham Nagar, Karnal — a shop where
+          families return for the second and third generation's weddings. We keep the
+          old ways: open weighing, honest making charges, and a jeweller who remembers
+          your name.
+        </p>
+
+        <p class="reveal mt-5 leading-relaxed text-pewter" style="transition-delay:.26s">
+          What changes is the design. Our karigars work in both the classic
+          temple-and-jadau idiom and in clean modern silhouettes — so a piece bought
+          today still feels right in twenty years.
+        </p>
+
+        <!-- stats -->
+        <div class="reveal mt-11 grid grid-cols-2 gap-px overflow-hidden border border-gold/25 bg-gold/25 sm:grid-cols-4" style="transition-delay:.32s">
+          <div class="bg-obsidian px-5 py-6 text-center">
+            <p class="font-display text-3xl text-gold">4.9</p>
+            <p class="mt-2 text-[9px] uppercase tracking-[0.28em] text-pewter">Rating</p>
+          </div>
+          <div class="bg-obsidian px-5 py-6 text-center">
+            <p class="font-display text-3xl text-gold">100%</p>
+            <p class="mt-2 text-[9px] uppercase tracking-[0.28em] text-pewter">Hallmarked</p>
+          </div>
+          <div class="bg-obsidian px-5 py-6 text-center">
+            <p class="font-display text-3xl text-gold">10am</p>
+            <p class="mt-2 text-[9px] uppercase tracking-[0.28em] text-pewter">Opens Daily</p>
+          </div>
+          <div class="bg-obsidian px-5 py-6 text-center">
+            <p class="font-display text-3xl text-gold">1:1</p>
+            <p class="mt-2 text-[9px] uppercase tracking-[0.28em] text-pewter">Service</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PROMISE
+     ============================================================ -->
+<section class="relative overflow-hidden border-y border-gold/15 py-28 sm:py-32">
+  <div class="absolute inset-0 bg-crosshatch opacity-60"></div>
+
+  <div class="relative mx-auto max-w-6xl px-5 sm:px-8">
+
+    <div class="mx-auto mb-16 max-w-2xl text-center">
+      <div class="reveal mb-6 flex items-center justify-center gap-4">
+        <span class="h-px w-12 bg-gold/50"></span>
+        <span class="font-display text-sm tracking-[0.4em] text-gold">IV</span>
+        <span class="h-px w-12 bg-gold/50"></span>
+      </div>
+      <h2 class="reveal font-display text-3xl uppercase tracking-[0.18em] text-cream sm:text-5xl" style="transition-delay:.08s">
+        The Rakesh Promise
+      </h2>
+    </div>
+
+    <div class="grid gap-px overflow-hidden border border-gold/25 bg-gold/25 sm:grid-cols-2">
+
+      <div class="group reveal relative bg-obsidian p-9 transition-colors duration-500 hover:bg-charcoal sm:p-11">
+        <span class="diamond h-12 w-12 border-gold/60"><span class="font-display text-sm text-gold">I</span></span>
+        <h3 class="mt-7 font-display text-lg uppercase tracking-[0.2em] text-gold">Certified Purity</h3>
+        <p class="mt-3 text-sm leading-relaxed text-pewter">
+          Every gold piece carries a hallmark. Every weight is shown on the scale
+          before you buy — no exceptions.
+        </p>
+      </div>
+
+      <div class="group reveal relative bg-obsidian p-9 transition-colors duration-500 hover:bg-charcoal sm:p-11" style="transition-delay:.08s">
+        <span class="diamond h-12 w-12 border-gold/60"><span class="font-display text-sm text-gold">II</span></span>
+        <h3 class="mt-7 font-display text-lg uppercase tracking-[0.2em] text-gold">In-Store Pick-Up</h3>
+        <p class="mt-3 text-sm leading-relaxed text-pewter">
+          Reserve a design and collect it from our Hansi Road counter — try it on,
+          check the finish, and take it home the same day.
+        </p>
+      </div>
+
+      <div class="group reveal relative bg-obsidian p-9 transition-colors duration-500 hover:bg-charcoal sm:p-11" style="transition-delay:.16s">
+        <span class="diamond h-12 w-12 border-gold/60"><span class="font-display text-sm text-gold">III</span></span>
+        <h3 class="mt-7 font-display text-lg uppercase tracking-[0.2em] text-gold">Home Delivery</h3>
+        <p class="mt-3 text-sm leading-relaxed text-pewter">
+          Within Karnal and nearby, orders can be delivered to your door in secure,
+          sealed packaging — confirmed on call first.
+        </p>
+      </div>
+
+      <div class="group reveal relative bg-obsidian p-9 transition-colors duration-500 hover:bg-charcoal sm:p-11" style="transition-delay:.24s">
+        <span class="diamond h-12 w-12 border-gold/60"><span class="font-display text-sm text-gold">IV</span></span>
+        <h3 class="mt-7 font-display text-lg uppercase tracking-[0.2em] text-gold">Old Gold Exchange</h3>
+        <p class="mt-3 text-sm leading-relaxed text-pewter">
+          Bring your old ornaments for a fair, transparent valuation — tested in
+          front of you, adjusted openly against your new purchase.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     REVIEWS
+     ============================================================ -->
+<section id="reviews" class="relative scroll-mt-24 overflow-hidden py-28 sm:py-32">
+  <div class="absolute inset-0 bg-crosshatch opacity-60"></div>
+
+  <div class="relative mx-auto max-w-7xl px-5 sm:px-8">
+
+    <div class="mx-auto mb-16 max-w-2xl text-center">
+      <div class="reveal mb-6 flex items-center justify-center gap-4">
+        <span class="h-px w-12 bg-gold/50"></span>
+        <span class="font-display text-sm tracking-[0.4em] text-gold">V</span>
+        <span class="h-px w-12 bg-gold/50"></span>
+      </div>
+      <h2 class="reveal font-display text-3xl uppercase tracking-[0.18em] text-cream sm:text-5xl" style="transition-delay:.08s">
+        Words From Patrons
+      </h2>
+
+      <div class="reveal mt-8 inline-flex items-center gap-5 border border-gold/30 bg-charcoal/70 px-7 py-4" style="transition-delay:.16s">
+        <span class="font-display text-4xl leading-none text-gold">4.9</span>
+        <span class="h-9 w-px bg-gold/30"></span>
+        <span class="text-left">
+          <span class="block text-base tracking-[0.2em] text-gold">★★★★★</span>
+          <span class="mt-1 block text-[10px] uppercase tracking-[0.28em] text-pewter">Based on 8 reviews</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+
+      <figure class="group reveal deco-corners relative border border-gold/30 bg-charcoal p-8 transition-all duration-500 hover:-translate-y-2 hover:border-gold">
+        <span class="font-display text-5xl leading-none text-gold/25">&ldquo;</span>
+        <blockquote class="-mt-4 text-base leading-relaxed text-cream/85">
+          It's so good and very very beautiful.
+        </blockquote>
+        <div class="mt-7 h-px w-full bg-gold/20"></div>
+        <figcaption class="mt-6 flex items-center gap-4">
+          <span class="diamond h-11 w-11 border-gold/50"><span class="font-display text-sm text-gold">M</span></span>
+          <span>
+            <span class="block font-display text-sm uppercase tracking-[0.18em] text-gold">Manisha Kamal</span>
+            <span class="mt-1 block text-[10px] uppercase tracking-[0.24em] text-pewter">2 reviews · 6 months ago</span>
+          </span>
+        </figcaption>
+      </figure>
+
+      <figure class="group reveal deco-corners relative border border-gold/30 bg-charcoal p-8 transition-all duration-500 hover:-translate-y-2 hover:border-gold" style="transition-delay:.1s">
+        <span class="font-display text-5xl leading-none text-gold/25">&ldquo;</span>
+        <blockquote class="-mt-4 text-base leading-relaxed text-cream/85">
+          Best shop in Haryana for jewellery.
+        </blockquote>
+        <div class="mt-7 h-px w-full bg-gold/20"></div>
+        <figcaption class="mt-6 flex items-center gap-4">
+          <span class="diamond h-11 w-11 border-gold/50"><span class="font-display text-sm text-gold">K</span></span>
+          <span>
+            <span class="block font-display text-sm uppercase tracking-[0.18em] text-gold">Karan Bhalla</span>
+            <span class="mt-1 block text-[10px] uppercase tracking-[0.24em] text-pewter">10 reviews · 3 years ago</span>
+          </span>
+        </figcaption>
+      </figure>
+
+      <figure class="group reveal deco-corners relative border border-gold/30 bg-charcoal p-8 transition-all duration-500 hover:-translate-y-2 hover:border-gold md:col-span-2 lg:col-span-1" style="transition-delay:.2s">
+        <span class="font-display text-5xl leading-none text-gold/25">&ldquo;</span>
+        <blockquote class="-mt-4 text-base leading-relaxed text-cream/85">
+          Very good.
+        </blockquote>
+        <div class="mt-7 h-px w-full bg-gold/20"></div>
+        <figcaption class="mt-6 flex items-center gap-4">
+          <span class="diamond h-11 w-11 border-gold/50"><span class="font-display text-sm text-gold">S</span></span>
+          <span>
+            <span class="block font-display text-sm uppercase tracking-[0.18em] text-gold">Sagar Kataria</span>
+            <span class="mt-1 block text-[10px] uppercase tracking-[0.24em] text-pewter">3 reviews · 6 months ago</span>
+          </span>
+        </figcaption>
+      </figure>
+
+    </div>
+
+    <div class="reveal mt-14 text-center">
+      <a href="https://www.google.com/maps/search/?api=1&query=Rakesh+Jewellers+Hansi+Road+Braham+Nagar+Karnal" target="_blank" rel="noopener" class="btn btn-primary">
+        Read All 8 Reviews
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     VISIT
+     ============================================================ -->
+<section id="visit" class="relative scroll-mt-24 border-t border-gold/15 py-28 sm:py-32">
+  <div class="absolute inset-0 bg-crosshatch opacity-60"></div>
+
+  <div class="relative mx-auto max-w-7xl px-5 sm:px-8">
+
+    <div class="mx-auto mb-16 max-w-2xl text-center">
+      <div class="reveal mb-6 flex items-center justify-center gap-4">
+        <span class="h-px w-12 bg-gold/50"></span>
+        <span class="font-display text-sm tracking-[0.4em] text-gold">VI</span>
+        <span class="h-px w-12 bg-gold/50"></span>
+      </div>
+      <h2 class="reveal font-display text-3xl uppercase tracking-[0.18em] text-cream sm:text-5xl" style="transition-delay:.08s">
+        Visit The Showroom
+      </h2>
+      <p class="reveal mt-6 leading-relaxed text-pewter" style="transition-delay:.16s">
+        Near Gali No. 4, Hansi Road, Braham Nagar — walk in and ask for Rakesh ji.
+      </p>
+    </div>
+
+    <div class="grid gap-8 lg:grid-cols-5">
+
+      <!-- Info column -->
+      <div class="space-y-px overflow-hidden border border-gold/25 bg-gold/25 lg:col-span-2">
+
+        <div class="group bg-obsidian p-7 transition-colors duration-500 hover:bg-charcoal">
+          <div class="flex items-start gap-5">
+            <span class="diamond h-12 w-12 shrink-0 border-gold/60">
+              <svg class="h-5 w-5 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </span>
+            <div>
+              <h3 class="font-display text-sm uppercase tracking-[0.28em] text-gold">Address</h3>
+              <p class="mt-3 text-sm leading-relaxed text-cream/80">
+                Near Gali No. 4, Hansi Rd,<br />
+                Braham Nagar, Karnal,<br />
+                Haryana 132001
+              </p>
+              <p class="mt-3 text-[10px] uppercase tracking-[0.24em] text-pewter">Plus code · MXQF+WQ Karnal</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="group bg-obsidian p-7 transition-colors duration-500 hover:bg-charcoal">
+          <div class="flex items-start gap-5">
+            <span class="diamond h-12 w-12 shrink-0 border-gold/60">
+              <svg class="h-5 w-5 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            </span>
+            <div class="w-full">
+              <h3 class="font-display text-sm uppercase tracking-[0.28em] text-gold">Hours</h3>
+              <p class="mt-3 flex items-center gap-3 text-sm text-cream/80">
+                <span class="inline-block h-2 w-2 rounded-full bg-gold/80"></span>
+                Closed now · Opens 10:00 am
+              </p>
+
+              <div class="mt-5 border-t border-gold/15 pt-5">
+                <p class="text-[10px] uppercase tracking-[0.28em] text-pewter">Popular — Fridays</p>
+                <div class="mt-4 flex items-end gap-2" aria-hidden="true">
+                  <span class="block w-3 bg-gold/25" style="height:14px"></span>
+                  <span class="block w-3 bg-gold/40" style="height:26px"></span>
+                  <span class="block w-3 bg-gold/70" style="height:44px"></span>
+                  <span class="block w-3 bg-gold/45" style="height:30px"></span>
+                  <span class="block w-3 bg-gold/80" style="height:52px"></span>
+                  <span class="block w-3 bg-gold/35" style="height:22px"></span>
+                </div>
+                <div class="mt-2 flex gap-2 text-[9px] tracking-[0.1em] text-pewter">
+                  <span class="w-3 text-center">6a</span>
+                  <span class="w-3 text-center">9a</span>
+                  <span class="w-3 text-center">12p</span>
+                  <span class="w-3 text-center">3p</span>
+                  <span class="w-3 text-center">6p</span>
+                  <span class="w-3 text-center">9p</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="group bg-obsidian p-7 transition-colors duration-500 hover:bg-charcoal">
+          <div class="flex items-start gap-5">
+            <span class="diamond h-12 w-12 shrink-0 border-gold/60">
+              <svg class="h-5 w-5 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.2 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.1 9.9a16 16 0 0 0 6 6l1.26-1.26a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </span>
+            <div>
+              <h3 class="font-display text-sm uppercase tracking-[0.28em] text-gold">Contact</h3>
+              <a href="tel:+919896079892" class="mt-3 block font-display text-xl tracking-[0.12em] text-cream transition-colors duration-300 hover:text-gold">
+                098960 79892
+              </a>
+              <p class="mt-2 text-[10px] uppercase tracking-[0.24em] text-pewter">Call · WhatsApp</p>
+
+              <div class="mt-5 flex flex-wrap gap-3">
+                <span class="border border-gold/30 px-3 py-1.5 text-[9px] uppercase tracking-[0.24em] text-cream/70">In-store Pick-up</span>
+                <span class="border border-gold/30 px-3 py-1.5 text-[9px] uppercase tracking-[0.24em] text-cream/70">Delivery</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-px bg-gold/25">
+          <a href="tel:+919896079892" class="bg-obsidian px-6 py-6 text-center transition-colors duration-400 hover:bg-gold hover:text-obsidian">
+            <span class="block text-[10px] uppercase tracking-[0.3em]">Call Now</span>
+          </a>
+          <a href="https://wa.me/919896079892" target="_blank" rel="noopener" class="bg-obsidian px-6 py-6 text-center transition-colors duration-400 hover:bg-gold hover:text-obsidian">
+            <span class="block text-[10px] uppercase tracking-[0.3em]">WhatsApp</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Map -->
+      <div class="reveal lg:col-span-3" style="transition-delay:.12s">
+        <div class="deco-corners relative h-full border border-gold/30 bg-charcoal p-2">
+          <div class="map-frame relative h-full min-h-[420px] overflow-hidden border border-gold/20">
+            <iframe
+              title="Rakesh Jewellers location on map — Hansi Road, Braham Nagar, Karnal"
+              src="https://maps.google.com/maps?q=Rakesh%20Jewellers%2C%20Hansi%20Rd%2C%20Braham%20Nagar%2C%20Karnal%2C%20Haryana%20132001&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              width="100%" height="100%"
+              style="border:0; position:absolute; inset:0; width:100%; height:100%;"
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+
+            <div class="pointer-events-none absolute inset-0" style="background:linear-gradient(180deg, rgba(10,10,10,.35) 0%, transparent 35%, transparent 65%, rgba(10,10,10,.55) 100%);"></div>
+
+            <span class="pointer-events-none absolute left-3 top-3 h-5 w-5 border-l-2 border-t-2 border-gold"></span>
+            <span class="pointer-events-none absolute right-3 top-3 h-5 w-5 border-r-2 border-t-2 border-gold"></span>
+            <span class="pointer-events-none absolute bottom-3 left-3 h-5 w-5 border-b-2 border-l-2 border-gold"></span>
+            <span class="pointer-events-none absolute bottom-3 right-3 h-5 w-5 border-b-2 border-r-2 border-gold"></span>
+          </div>
+
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Rakesh+Jewellers+Hansi+Road+Braham+Nagar+Karnal+Haryana+132001"
+             target="_blank" rel="noopener"
+             class="btn btn-solid absolute bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap">
+            Get Directions
+            <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FINAL CTA
+     ============================================================ -->
+<section class="relative overflow-hidden border-t border-gold/25 py-24">
+  <div class="absolute inset-0 bg-charcoal"></div>
+  <div class="absolute inset-0 bg-crosshatch opacity-70"></div>
+  <div class="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full"
+       style="background:radial-gradient(circle, rgba(212,175,55,.15) 0%, transparent 70%);"></div>
+
+  <div class="relative mx-auto max-w-3xl px-5 text-center sm:px-8">
+    <div class="reveal mx-auto mb-8 flex items-center justify-center gap-4">
+      <span class="h-px w-14 bg-gold/60"></span>
+      <span class="diamond h-3 w-3 border-gold/80"></span>
+      <span class="h-px w-14 bg-gold/60"></span>
+    </div>
+
+    <h2 class="reveal font-display text-3xl uppercase leading-tight tracking-[0.16em] text-cream sm:text-4xl lg:text-5xl" style="transition-delay:.08s">
+      Something Made<br />Only For You
+    </h2>
+
+    <p class="reveal mx-auto mt-7 max-w-xl leading-relaxed text-cream/70" style="transition-delay:.16s">
+      Tell us the occasion. We'll help you find — or build — the piece that
+      belongs to it.
+    </p>
+
+    <div class="reveal mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row" style="transition-delay:.24s">
+      <a href="tel:+919896079892" class="btn btn-solid w-full sm:w-auto">Call 098960 79892</a>
+      <a href="https://wa.me/919896079892" target="_blank" rel="noopener" class="btn btn-primary w-full sm:w-auto">Message on WhatsApp</a>
+    </div>
+  </div>
+</section>
+</main>
+
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="relative overflow-hidden bg-obsidian pt-20">
+  <div class="absolute inset-0 bg-crosshatch opacity-50"></div>
+
+  <div class="relative mx-auto max-w-7xl px-5 sm:px-8">
+    <div class="grid gap-12 pb-16 lg:grid-cols-5">
+
+      <div class="lg:col-span-2">
+        <div class="flex items-center gap-3">
+          <span class="diamond h-10 w-10 border-gold/70"><span class="font-display text-lg text-gold">R</span></span>
+          <span class="leading-none">
+            <span class="block font-display text-base tracking-[0.34em] text-gold">RAKESH</span>
+            <span class="mt-1 block text-[9px] tracking-[0.46em] text-pewter">JEWELLERS</span>
+          </span>
+        </div>
+
+        <p class="mt-6 max-w-sm text-sm leading-relaxed text-pewter">
+          Fine gold, diamond and bridal jewellery on Hansi Road, Braham Nagar,
+          Karnal — hallmarked, honestly weighed, and made to be kept.
+        </p>
+
+        <div class="mt-7 flex items-center gap-3">
+          <span class="flex gap-[3px] text-gold text-sm">★★★★★</span>
+          <span class="text-[10px] uppercase tracking-[0.28em] text-pewter">4.9 · 8 Reviews</span>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="font-display text-xs uppercase tracking-[0.34em] text-gold">Explore</h3>
+        <div class="mt-3 h-px w-10 bg-gold/40"></div>
+        <ul class="mt-6 space-y-3.5 text-sm">
+          <li><a href="#home"        class="text-cream/70 transition-colors duration-300 hover:text-gold">Home</a></li>
+          <li><a href="#collections" class="text-cream/70 transition-colors duration-300 hover:text-gold">Collections</a></li>
+          <li><a href="#gallery"     class="text-cream/70 transition-colors duration-300 hover:text-gold">Gallery</a></li>
+          <li><a href="#heritage"    class="text-cream/70 transition-colors duration-300 hover:text-gold">Heritage</a></li>
+          <li><a href="#reviews"     class="text-cream/70 transition-colors duration-300 hover:text-gold">Reviews</a></li>
+          <li><a href="#visit"       class="text-cream/70 transition-colors duration-300 hover:text-gold">Visit Us</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-display text-xs uppercase tracking-[0.34em] text-gold">Services</h3>
+        <div class="mt-3 h-px w-10 bg-gold/40"></div>
+        <ul class="mt-6 space-y-3.5 text-sm text-cream/70">
+          <li>Bridal Consultation</li>
+          <li>Custom Design</li>
+          <li>Old Gold Exchange</li>
+          <li>In-store Pick-up</li>
+          <li>Home Delivery</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-display text-xs uppercase tracking-[0.34em] text-gold">Reach Us</h3>
+        <div class="mt-3 h-px w-10 bg-gold/40"></div>
+
+        <address class="mt-6 not-italic text-sm leading-relaxed text-cream/70">
+          Near Gali No. 4, Hansi Rd,<br />
+          Braham Nagar, Karnal,<br />
+          Haryana 132001
+        </address>
+
+        <a href="tel:+919896079892" class="mt-5 block font-display text-lg tracking-[0.1em] text-gold transition-opacity duration-300 hover:opacity-75">
+          098960 79892
+        </a>
+
+        <p class="mt-4 text-[10px] uppercase tracking-[0.26em] text-pewter">
+          Closed now · Opens 10:00 am
+        </p>
+
+        <a href="https://wa.me/919896079892" target="_blank" rel="noopener"
+           class="mt-5 inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-cream/70 transition-colors duration-300 hover:text-gold">
+          WhatsApp <span>→</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="rule"></div>
+
+    <div class="flex flex-col items-center justify-between gap-5 py-8 sm:flex-row">
+      <p class="text-[10px] uppercase tracking-[0.26em] text-pewter">
+        © <span id="year">2025</span> Rakesh Jewellers · Karnal
+      </p>
+      <p class="text-[10px] uppercase tracking-[0.26em] text-pewter/70">
+        Crafted in the Art Deco tradition
+      </p>
+    </div>
+  </div>
+
+  <div class="relative flex items-center justify-center gap-3 pb-8">
+    <span class="h-px w-16 bg-gold/30"></span>
+    <span class="diamond h-2.5 w-2.5 border-gold/50"></span>
+    <span class="h-px w-16 bg-gold/30"></span>
+  </div>
+</footer>
+
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/919896079892" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"
+   class="fixed bottom-5 right-5 z-40 flex h-14 w-14 items-center justify-center border border-gold/60 bg-obsidian/90 backdrop-blur-md transition-all duration-400 hover:bg-gold hover:text-obsidian glow-gold">
+  <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.64-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47 0 1.46 1.06 2.87 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.69.25-1.28.17-1.41-.07-.13-.27-.2-.57-.35z"/>
+    <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15h-.01c-1.5 0-2.97-.4-4.25-1.16l-.3-.18-3.12.82.83-3.04-.2-.31a8.24 8.24 0 0 1-1.26-4.37c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.18 8.23z"/>
+  </svg>
+</a>
+
+
+<script>
+(function () {
+  'use strict';
+
+  /* ==========================================================
+     INTRO SEQUENCE
+     ========================================================== */
+  const intro        = document.getElementById('intro');
+  const introContent = document.getElementById('introContent');
+  const skipBtn      = document.getElementById('skipIntro');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  let finished = false;
+  let timers = [];
+
+  function finishIntro(instant) {
+    if (finished) return;
+    finished = true;
+    timers.forEach(clearTimeout);
+
+    const openDelay = instant ? 0 : 500;
+    const hideDelay = instant ? 60  : 1700;
+
+    introContent.classList.add('out');
+
+    setTimeout(() => { intro.classList.add('open'); }, openDelay);
+
+    setTimeout(() => {
+      intro.style.display = 'none';
+      document.body.classList.remove('intro-lock');
+      startReveals();
+    }, hideDelay);
+  }
+
+  if (reduceMotion) {
+    timers.push(setTimeout(() => finishIntro(false), 400));
+  } else {
+    timers.push(setTimeout(() => introContent.classList.add('out'), 3600));
+    timers.push(setTimeout(() => intro.classList.add('open'), 4150));
+    timers.push(setTimeout(() => {
+      intro.style.display = 'none';
+      document.body.classList.remove('intro-lock');
+      startReveals();
+      finished = true;
+    }, 5450));
+  }
+
+  skipBtn.addEventListener('click', (e) => { e.stopPropagation(); finishIntro(false); });
+  intro.addEventListener('click', () => finishIntro(false));
+  document.addEventListener('keydown', (e) => {
+    if (!finished && (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ')) {
+      finishIntro(false);
+    }
+  });
+
+  /* ==========================================================
+     SCROLL REVEALS
+     ========================================================== */
+  let revealStarted = false;
+
+  function startReveals() {
+    if (revealStarted) return;
+    revealStarted = true;
+
+    const els = document.querySelectorAll('.reveal');
+
+    if (!('IntersectionObserver' in window) || reduceMotion) {
+      els.forEach(el => el.classList.add('in'));
+      return;
+    }
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+    els.forEach(el => io.observe(el));
+  }
+
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      if (document.body.classList.contains('intro-lock')) {
+        document.body.classList.remove('intro-lock');
+        intro.style.display = 'none';
+      }
+      startReveals();
+    }, 7000);
+  });
+
+  /* ==========================================================
+     MOBILE MENU
+     ========================================================== */
+  const menuBtn    = document.getElementById('menuBtn');
+  const menuClose  = document.getElementById('menuClose');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  function openMenu() {
+    mobileMenu.classList.remove('hidden');
+    menuBtn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    mobileMenu.classList.add('hidden');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  menuBtn.addEventListener('click', openMenu);
+  menuClose.addEventListener('click', closeMenu);
+  document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+
+  /* ==========================================================
+     HEADER SCROLL
+     ========================================================== */
+  const header = document.getElementById('siteHeader');
+  const onScroll = () => {
+    header.style.boxShadow = window.scrollY > 40 ? '0 8px 40px rgba(0,0,0,.6)' : 'none';
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ==========================================================
+     YEAR
+     ========================================================== */
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+</script>
+
+</body>
+</html>
